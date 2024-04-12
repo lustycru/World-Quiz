@@ -1,2 +1,92 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Open+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+
+body {
+    font-family: "Space Grotesk", sans-serif;
+    margin: auto 200px;
+    color: #1F3851;
+    background: linear-gradient(#c9e5fa, #29a5fd);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header h1 {
+    color: #29A4FD;
+}
+
+.header span {
+    color: #1F3851;
+}
+
+.header a {
+    color: #1F3851;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 22px;
+    background-color: #F0EDEE;
+    border-radius: 35px;
+    padding-right: 10px;
+    padding-left: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.header a img {
+    width: 40px;
+}
+
+.reseaux img {
+    width: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.main-left h3 {
+    font-size: 50px;
+    width: 45%;
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+.main-left h3 span {
+    color: #29A4FD;
+}
+
+.main-left p {
+    font-size: 24px;
+    width: 58%;
+    margin-top: 10px;
+}
+
+.main-left a {
+    color: #1F3851;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 22px;
+    background-color: #F0EDEE;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    width: fit-content;
+    height: 50px;
+}
+
+.main-left img {
+    width: 50px;
+}
+
+.contain {
+    display: flex;
+}
+
+.illsutration {
+    width: 30%;
+}
