@@ -114,6 +114,7 @@ BoxTv.addEventListener('click', function () {
     console.log(categorie)
     main.removeChild(content)
     main.appendChild(Diffdiv)
+    
 
 })
 
