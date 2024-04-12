@@ -1,0 +1,118 @@
+:root {
+    --backColor : #8ACCFC;
+    --color : #1F3851;
+}
+
+*{
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--backColor);
+    font-family: sans-serif;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+
+h2{
+    font-size: 88px;
+    color: var(--color);
+}
+
+h3{
+    font-size: 32px;
+}
+
+button{
+    background-color: #fff;
+    color: var(--color);
+    padding: 10px 55px;
+    border-radius:  50px;
+    font-size: 32px;
+    height: 61px;
+    border: none;
+    box-shadow: rgba(0.19) 20px 20px, rgba(0.23) 6px 6px;
+}
+
+i{
+    color: var(--color);
+    font-size: 45px;
+    margin: 0 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+main{
+    margin-top: 150px;
+}
+
+.box{
+    width: 650px;
+    height: 400px;
+    position: relative;
+}
+img{
+    width: 100%;
+    border-radius: 10px;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    width: 84%;
+}
+
+.btmbox{
+    background-color: #1F3851;
+    color: #fff;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 276px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.ibtmbox {
+    color: white;
+}
+
+.boxNiv{
+    background-color: var(--color);
+}
+
+.diff {
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.diffh3{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.boxNiv{
+    width: 300px;
+    height: 150px;
+    border-radius: 25px;
+    font-size: 25px;
+    color: white;
+    margin: 30px;
+    padding: 20px;
+}
+
+.divChoises{
+    display: flex;
+}
