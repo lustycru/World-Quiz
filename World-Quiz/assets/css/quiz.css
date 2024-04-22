@@ -5,7 +5,7 @@ body {
   margin: auto 200px;
   color: #1f3851;
   background: linear-gradient(#c9e5fa, #29a5fd) no-repeat;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .header {

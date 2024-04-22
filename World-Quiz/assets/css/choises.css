@@ -1,16 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Open+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
     --backColor : #8ACCFC;
     --color : #1F3851;
 }
 
-*{
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
 body{
-    background-color: var(--backColor);
-    font-family: sans-serif;
+    background: linear-gradient(#c9e5fa, #29a5fd) no-repeat;
+    font-family: "Space Grotesk", sans-serif;
+    margin: auto 200px;
+    min-height: 100vh;
 }
 
 
@@ -18,34 +18,39 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 50px;
 }
-
-
 
 h2{
-    font-size: 88px;
+    font-size: 40px;
     color: var(--color);
-}
-
-h3{
-    font-size: 32px;
 }
 
 button{
     background-color: #fff;
     color: var(--color);
-    padding: 10px 55px;
-    border-radius:  50px;
-    font-size: 32px;
-    height: 61px;
+    padding: 10px 30px;
+    border-radius:  15px;
+    font-size: 21px;
     border: none;
     box-shadow: rgba(0.19) 20px 20px, rgba(0.23) 6px 6px;
+    cursor: pointer;
+}
+
+.homebtn {
+    background-color: #fff;
+    color: var(--color);
+    padding: 7px 30px;
+    border-radius:  15px;
+    font-size: 21px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    color: #1F3851;
+    text-decoration: none;
 }
 
 i{
     color: var(--color);
-    font-size: 45px;
+    font-size: 28px;
     margin: 0 10px;
 }
 
@@ -57,38 +62,34 @@ main{
     margin-top: 150px;
 }
 
-.box{
-    width: 650px;
-    height: 400px;
-    position: relative;
-}
 img{
-    width: 100%;
     border-radius: 10px;
 }
+
 .content{
     display: flex;
     flex-wrap: wrap;
-    width: 84%;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 }
 
 .btmbox{
     background-color: #1F3851;
     color: #fff;
-    height: 47px;
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 276px;
-    width: 100%;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 10px;
+    padding-left: 10px;
+    justify-content: center;
 }
 
 .ibtmbox {
     color: white;
 }
 
-.boxNiv{
+.boxNiv {
     background-color: var(--color);
 }
 
@@ -111,8 +112,17 @@ img{
     color: white;
     margin: 30px;
     padding: 20px;
+    cursor: pointer;
+
 }
 
 .divChoises{
     display: flex;
+}
+
+.box {
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
 }

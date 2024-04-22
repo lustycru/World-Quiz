@@ -4,7 +4,7 @@ const BoxActu = document.querySelector('#actu')
 const BoxSport = document.querySelector('#sport')
 const BoxMusique = document.querySelector('#musique')
 const BoxArt = document.querySelector('#art')
-const BoxTv = document.querySelector('#tv')  
+const BoxTv = document.querySelector('#tv')
 const content = document.querySelector('.content')
 const box = document.querySelectorAll('.box')
 const main = document.querySelector('main')
@@ -21,7 +21,7 @@ Diffdiv.appendChild(divChoises)
 
 const Diffh3 = document.createElement('h3')
 Diffh3.classList.add('diffh3')
-Diffh3.textContent = 'Choissez le niveau des questions :';
+Diffh3.textContent = 'Choississez le niveau des questions :';
 Diffdiv.appendChild(Diffh3)
 
 const niv1 = document.createElement('div')
@@ -57,6 +57,8 @@ pNiv3.textContent = 'Difficile';
 niv3.appendChild(pNiv3)
 
 
+let categorie = ""
+let niv = ""
 
 console.log(header)
 
@@ -65,17 +67,17 @@ console.log(header)
 
 BoxCulture.addEventListener('click', function () {
 
-    const categorie = "culture_generale"
+    categorie = "culture_generale"
     console.log(categorie)
     main.removeChild(content)
     main.appendChild(Diffdiv)
-    
+
 
 })
 
 BoxActu.addEventListener('click', function () {
 
-    const categorie = "actu_politique"
+    categorie = "actu_politique"
     console.log(categorie)
     main.removeChild(content)
     main.appendChild(Diffdiv)
@@ -83,7 +85,7 @@ BoxActu.addEventListener('click', function () {
 
 BoxSport.addEventListener('click', function () {
 
-    const categorie = "sport"
+    categorie = "sport"
     console.log(categorie)
     main.removeChild(content)
     main.appendChild(Diffdiv)
@@ -92,7 +94,7 @@ BoxSport.addEventListener('click', function () {
 
 BoxMusique.addEventListener('click', function () {
 
-    const categorie = "musique"
+    categorie = "musique"
     console.log(categorie)
     main.removeChild(content)
     main.appendChild(Diffdiv)
@@ -101,7 +103,7 @@ BoxMusique.addEventListener('click', function () {
 
 BoxArt.addEventListener('click', function () {
 
-    const categorie = "art_litterature"
+    categorie = "art_litterature"
     console.log(categorie)
     main.removeChild(content)
     main.appendChild(Diffdiv)
@@ -110,35 +112,157 @@ BoxArt.addEventListener('click', function () {
 
 BoxTv.addEventListener('click', function () {
 
-    const categorie = "tv_cinéma"
+    categorie = "tv_cinéma"
     console.log(categorie)
     main.removeChild(content)
     main.appendChild(Diffdiv)
-    
+
 
 })
 
 niv1.addEventListener('click', function () {
 
-    const niv = "facile"
+    niv = "facile"
     header.removeChild(h2Choix)
     header.removeChild(contact)
+    main.removeChild(Diffdiv)
+    changeText()
 
 })
 
 niv2.addEventListener('click', function () {
 
-    const niv = "normal"
+    niv = "normal"
     header.removeChild(h2Choix)
     header.removeChild(contact)
+    main.removeChild(Diffdiv)
+    changeText()
 
 })
 
 niv3.addEventListener('click', function () {
 
-    const niv3 = "difficile"
+    niv = "difficile"
     header.removeChild(h2Choix)
     header.removeChild(contact)
-    
+    main.removeChild(Diffdiv)
+    changeText()
 
 })
+
+
+
+function changeText() {
+
+    function shuffle(array) {
+        array.sort(() => Math.random() - 0.5);
+    }
+
+    console.log("=====")
+    console.log(categorie)
+    console.log("=====")
+    console.log(niv)
+    console.log("=====")
+
+    // https://quizzapi.jomoreschi.fr/api/v1/quiz?limit=5&category=culture_generale&difficulty=facile
+
+    fetch(`https://quizzapi.jomoreschi.fr/api/v1/quiz?limit=5&category=${categorie}&difficulty=${niv}`)
+        .then((response) => response.json())
+        .then(function (result) {
+            console.log(result)
+
+            const numberOfQuestions = result.count
+            const questions = result.quizzes
+
+            const question = document.createElement('h3')
+            question.classList.add('question')
+
+            const categorie = document.createElement('p')
+            categorie.classList.add('categorie')
+
+            const niveau = document.createElement('p')
+            niveau.classList.add('niveau')
+
+
+            const firstQuestion = questions[0]
+
+            const answers = [firstQuestion.answer, ...firstQuestion.badAnswers]
+            shuffle(answers)
+
+            console.log(firstQuestion)
+            console.log(answers)
+
+            const divAnswer = document.createElement('div')
+            divAnswer.classList.add('divAnswer')
+
+            const divAnswers = document.createElement('div')
+            divAnswers.classList.add('divAnswers')
+
+            const pAnswer = document.createElement('p')
+            pAnswer.classList.add('pAnswer')
+            pAnswer.textContent = answers
+
+
+            main.appendChild(divAnswers)
+            divAnswers.appendChild(divAnswer)
+            divAnswer.appendChild(pAnswer)
+
+
+
+
+
+
+            header.appendChild(question)
+            header.appendChild(categorie)
+            header.appendChild(niveau)
+
+            // for (let i = 0; i < numberOfQuestions; i++) {
+
+            //     console.log(questions[i])
+
+            //     const divAnswer = document.createElement('div')
+            //     divAnswer.classList.add('divAnswer')
+
+
+            //     const pAnswer = document.createElement('p')
+            //     pAnswer.classList.add('pAnswer')
+
+
+            //     main.appendChild(divAnswers)
+            //     divAnswers.appendChild(divAnswer)
+            //     divAnswer.appendChild(pAnswer)
+            // }
+
+
+
+            // for (let i = 0; i < 10; i++) {
+            //     question.textContent = `Question : ${result.quizzes[i].question}`;
+            //     question.style = "width: 40%";
+            //     categorie.innerHTML = `Catégorie : ${result.quizzes[i].category}`;
+            //     niveau.innerHTML = ` Difficulté : ${result.quizzes[i].difficulty}`;
+
+            //     const answers = [result.quizzes[0].answer, ...result.quizzes[0].badAnswers]
+            //     shuffle(answers)
+
+            //     pAnswer.textContent = ` A : ${answers[0]}`
+            //     pAnswer.textContent = ` B : ${answers[1]}`
+            //     pAnswer.textContent = ` C : ${answers[2]}`
+            //     pAnswer.textContent = ` D : ${answers[3]}`
+
+            // }
+
+
+
+
+
+
+
+            // console.log(yes)
+            // console.log(result.quizzes[0])
+            // console.log(result.quizzes[0].answer)
+            // console.log(result.quizzes[0].badAnswers)
+
+
+
+        })
+}
