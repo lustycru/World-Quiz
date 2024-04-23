@@ -57,6 +57,8 @@ pNiv3.textContent = 'Difficile';
 niv3.appendChild(pNiv3)
 
 
+const AnswersLenght = 4
+
 let categorie = ""
 let niv = ""
 
@@ -169,28 +171,20 @@ function changeText() {
     fetch(`https://quizzapi.jomoreschi.fr/api/v1/quiz?limit=5&category=${categorie}&difficulty=${niv}`)
         .then((response) => response.json())
         .then(function (result) {
-            console.log(result)
-
-            const numberOfQuestions = result.count
-            const questions = result.quizzes
-
-            const question = document.createElement('h3')
-            question.classList.add('question')
-
-            const categorie = document.createElement('p')
-            categorie.classList.add('categorie')
-
-            const niveau = document.createElement('p')
-            niveau.classList.add('niveau')
 
 
-            const firstQuestion = questions[0]
 
-            const answers = [firstQuestion.answer, ...firstQuestion.badAnswers]
-            shuffle(answers)
+            const pQuestion = document.createElement('p')
+            pQuestion.classList.add('pQuestion')
 
-            console.log(firstQuestion)
-            console.log(answers)
+
+            const pCategorie = document.createElement('p')
+            pCategorie.classList.add('pCategorie')
+
+
+            const pDifficulte = document.createElement('p')
+            pDifficulte.classList.add('pDifficulte')
+
 
             const divAnswer = document.createElement('div')
             divAnswer.classList.add('divAnswer')
@@ -200,38 +194,57 @@ function changeText() {
 
             const pAnswer = document.createElement('p')
             pAnswer.classList.add('pAnswer')
-            pAnswer.textContent = answers
+
+
+
+
+
+            let p = 0
+
+
+
+
+
+
+            function coucou() {
+                const answers = [result.quizzes[p].answer, ...result.quizzes[p].badAnswers]
+
+                shuffle(answers)
+
+                pQuestion.textContent = `Question : ${result.quizzes[p].question}`
+                pCategorie.textContent = `Catégorie : ${result.quizzes[p].category}`
+                pDifficulte.textContent = `Difficultée : ${result.quizzes[p].difficulty}`
+                pAnswer.textContent = answers
+                console.log(answers)
+            }
+
+            pAnswer.addEventListener('click', function () {
+
+                p++
+                coucou()
+                console.log(result)
+
+
+            })
+
+            for (let i = 0; i < AnswersLenght; i++) {
+
+
+                const divAnswer = document.createElement('div')
+                divAnswer.classList.add('divAnswer')
+
+                divAnswers.appendChild(divAnswer)
+                divAnswer.appendChild(pAnswer)
+            }
+
+
+
 
 
             main.appendChild(divAnswers)
-            divAnswers.appendChild(divAnswer)
-            divAnswer.appendChild(pAnswer)
-
-
-
-
-
-
-            header.appendChild(question)
-            header.appendChild(categorie)
-            header.appendChild(niveau)
-
-            // for (let i = 0; i < numberOfQuestions; i++) {
-
-            //     console.log(questions[i])
-
-            //     const divAnswer = document.createElement('div')
-            //     divAnswer.classList.add('divAnswer')
-
-
-            //     const pAnswer = document.createElement('p')
-            //     pAnswer.classList.add('pAnswer')
-
-
-            //     main.appendChild(divAnswers)
-            //     divAnswers.appendChild(divAnswer)
-            //     divAnswer.appendChild(pAnswer)
-            // }
+            header.appendChild(pQuestion)
+            header.appendChild(pCategorie)
+            header.appendChild(pDifficulte)
 
 
 
@@ -262,7 +275,7 @@ function changeText() {
             // console.log(result.quizzes[0].answer)
             // console.log(result.quizzes[0].badAnswers)
 
-
+            coucou()
 
         })
 }
