@@ -34,6 +34,7 @@ button{
     border: none;
     box-shadow: rgba(0.19) 20px 20px, rgba(0.23) 6px 6px;
     cursor: pointer;
+
 }
 
 .homebtn {
@@ -83,6 +84,9 @@ img{
     border-radius: 10px;
     padding-left: 10px;
     justify-content: center;
+    position: absolute;
+    bottom: 25px;
+    width: 415px;
 }
 
 .ibtmbox {
@@ -125,4 +129,5 @@ img{
     padding-left: 20px;
     padding-bottom: 20px;
     cursor: pointer;
+    position: relative;
 }

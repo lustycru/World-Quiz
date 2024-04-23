@@ -154,6 +154,7 @@ niv3.addEventListener('click', function () {
 
 
 
+
 function changeText() {
 
     function shuffle(array) {
@@ -182,25 +183,7 @@ function changeText() {
             pDifficulte.classList.add('pDifficulte')
 
 
-            const divAnswer = document.createElement('div')
-            divAnswer.classList.add('divAnswer')
-
-            const divAnswers = document.createElement('div')
-            divAnswers.classList.add('divAnswers')
-
-            const pAnswer = document.createElement('p')
-            pAnswer.classList.add('pAnswer')
-
-
-
-
-
             let p = 0
-
-
-
-
-
 
             function coucou() {
                 const answers = [result.quizzes[p].answer, ...result.quizzes[p].badAnswers]
@@ -213,16 +196,16 @@ function changeText() {
 
 
                 for (let i = 0; i < answers.length; i++) {
-                    const answerContainer = document.createElement('div')
+                    const answerContainer = document.createElement('p')
+                    answerContainer.classList.add('answerContainer')
                     answerContainer.textContent = answers[i]
-                    pAnswer.appendChild(answerContainer)
+                    divAnswer.appendChild(answerContainer)
                 }
 
-                // pAnswer.textContent = answers
 
             }
 
-            pAnswer.addEventListener('click', function () {
+            pDifficulte.addEventListener('click', function () {
 
                 p++
                 coucou()
@@ -232,26 +215,19 @@ function changeText() {
             })
 
 
-            for (let i = 0; i < AnswersLenght; i++) {
-                const divAnswer = document.createElement('div')
-                divAnswer.classList.add('divAnswer')
 
-                divAnswers.appendChild(divAnswer)
-                divAnswer.appendChild(pAnswer)
-            }
-
-
-
-
-
-            main.appendChild(divAnswers)
-
+            const divAnswer = document.createElement('div')
+            divAnswer.classList.add('divAnswer')
+            main.appendChild(divAnswer)
 
 
             header.appendChild(pQuestion)
             header.appendChild(pCategorie)
             header.appendChild(pDifficulte)
 
+            if (pCategorie.clicked == true) {
+                console.log("non")
+            }
 
 
             // for (let i = 0; i < 10; i++) {
