@@ -160,11 +160,7 @@ function changeText() {
         array.sort(() => Math.random() - 0.5);
     }
 
-    console.log("=====")
-    console.log(categorie)
-    console.log("=====")
-    console.log(niv)
-    console.log("=====")
+
 
     // https://quizzapi.jomoreschi.fr/api/v1/quiz?limit=5&category=culture_generale&difficulty=facile
 
@@ -214,8 +210,16 @@ function changeText() {
                 pQuestion.textContent = `Question : ${result.quizzes[p].question}`
                 pCategorie.textContent = `Catégorie : ${result.quizzes[p].category}`
                 pDifficulte.textContent = `Difficultée : ${result.quizzes[p].difficulty}`
-                pAnswer.textContent = answers
-                console.log(answers)
+
+
+                for (let i = 0; i < answers.length; i++) {
+                    const answerContainer = document.createElement('div')
+                    answerContainer.textContent = answers[i]
+                    pAnswer.appendChild(answerContainer)
+                }
+
+                // pAnswer.textContent = answers
+
             }
 
             pAnswer.addEventListener('click', function () {
@@ -227,9 +231,8 @@ function changeText() {
 
             })
 
+
             for (let i = 0; i < AnswersLenght; i++) {
-
-
                 const divAnswer = document.createElement('div')
                 divAnswer.classList.add('divAnswer')
 
@@ -242,6 +245,9 @@ function changeText() {
 
 
             main.appendChild(divAnswers)
+
+
+
             header.appendChild(pQuestion)
             header.appendChild(pCategorie)
             header.appendChild(pDifficulte)
