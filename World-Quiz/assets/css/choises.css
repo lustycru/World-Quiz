@@ -111,9 +111,9 @@ img{
     font-size: 25px;
     color: white;
     margin: 30px;
-    padding: 20px;
     cursor: pointer;
-
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .divChoises{
